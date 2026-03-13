@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+ <body>
+      <div class="content">
+         <div class="images">
+            <img src="images/Avenida Juscelino Kubstcheck.jpeg">
+            <img src="images/download (6).jpeg">
+            <img src="images/download (7).jpeg">
+            <img src="images/São Paulo , Brazil _ SP _ Paulista _ Sampa _ São Paulo City _ Cidade de São Paulo _ Estado de São Paulo _ Fotos _ Imagens _ Fotografia _ Noite _ Night _ Photo _ Picture _ Ciudad _ Provincia _ Province _ San Paulo .jpeg">
+            <img src="images/São Paulo, Brazil_ 🇧🇷.jpeg">
+         </div>
+         <div class="btm-slides">
+            <span onclick="btm_slide(1)"></span>
+            <span onclick="btm_slide(2)"></span>
+            <span onclick="btm_slide(3)"></span>
+            <span onclick="btm_slide(4)"></span>
+            <span onclick="btm_slide(5)"></span>
+         </div>
+         <div class="sliders left" onclick="side_slide(-1)">
+            <span class="fas fa-angle-left"></span>
+         </div>
+         <div class="sliders right" onclick="side_slide(1)">
+            <span class="fas fa-angle-right"></span>
+         </div>
+      </div>
+      <script>
+         var indexValue = 1;
+         showImg(indexValue);
+         function btm_slide(e){showImg(indexValue = e);}
+         function side_slide(e){showImg(indexValue += e);}
+         function showImg(e){
+           var i;
+           const img = document.querySelectorAll('img');
+           const slider = document.querySelectorAll('.btm-slides span');
+           if(e > img.length){indexValue = 1}
+           if(e < 1){indexValue = img.length}
+           for(i = 0; i < img.length; i++){
+             img[i].style.display = "none";
+           }
+           for(i = 0; i < slider.length; i++){
+             slider[i].style.background = "rgba(255,255,255,0.1)";
+           }
+           img[indexValue-1].style.display = "block";
+           slider[indexValue-1].style.background = "white";
+         }
+      </script>
+   </body>
+</html>
